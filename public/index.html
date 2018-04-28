@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+  <html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+      <link href="main.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+
+      <title>Live Music Event API</title>
+    </head>
+    <body>
+      <main> 
+        <h1>Amped</h1><br>  
+  
+        <section class="landing_page page" id="landing_page">    
+          <div class="border">  
+            <div class="crowdWalk">
+              <h2>THE BEST BANDS!</h2>
+              <h2>THE HOTTEST SHOWS!</h2>                    
+                <div class="inputContainer boxes">
+                  <h3>Search by name:</h3>
+                      <form class = "artistS" name = "artistS" action = "#" onsubmit = "return false">
+                        <input class = "inputA" type = "text" name = "artistSearch" id = "artistSearch" placeholder = "artist or event" /><br>
+                        <button class="buttonOne button" id="btnFindArtist" type="submit" onclick = "toggleArtist()">search</button>
+                      </form><br>
+                </div>
+                <div class="inputContainer boxes">
+                  <h3>Search by location:</h3>
+                    <form class="locationSearch" name="locationSearch" action="#" onsubmit="return false">
+                      <input class="inputL" type="text" name="eventSearch" id="eventSearch" placeholder="city or zip code" /><br>
+                        <button class="buttonOne button" id="btnGetEvents" type="submit" onclick="toggleEvents()">search</button><br>
+                      </form><br>
+                </div>
+                </div> 
+                  <form class="signUser" name="signUser" id="sigF" action="#" onsubmit="return false">
+                    <button class="buttonOne" id="sign_up_button" type="submit" onclick="toggleSignUp()">Register for an account</button> 
+                    <button class="buttonOne" id="sign_in_button" type="submit" onclick="toggleSignIn()">Have an account? Sign in</button>
+                  </form>  
+          </div>
+        </section>
+
+        <section class="artist_results_page page" id="artist_results_page">
+          <h2>YOUR EVENTS</h2>
+            <div class="resultsContainer">
+              <ul class="artist_display">
+                <li class="name head">Artist: </li>
+                <li><span id="name"></span></li>
+                <li class="id head">Id: </li>
+                <li><span id="id"></span></li>
+              </ul>
+           </div>
+              <form class="backToIt" name="goBack" action = "#" onsubmit="return false"> 
+                <button class="buttonOne button" type="submit" id="restart" onclick="renderPage()">back to search</button><br><br>
+              </form><br><br>
+        </section>
+
+        <section class="event_results_page page" id="event_results_page">
+          <h2>YOUR EVENTS</h2>
+            <div class="resultsContainer">
+              <ul class="events_display">
+                <li class="title head">Event: </li>
+                <li><span id="title"></span></li>
+                <li class="city_name head">City: </li>
+                <li><span id="city_name"></span></li>
+                <li class="starts head">Date/Time: </li>
+                <li><span id="starts"></span></li>
+                <li class="venueE head">Venue: </li>
+                <li><span id="venueE"></span></li>
+                <li class="address head">Venue Address: </li>
+                <li><span id="address"></span></li>
+              </ul>
+            </div>
+          <div class="resultsContainer">
+            <ul class="events_display">
+              <li class="title head">Event: </li>
+              <li><span id="title2"></span></li>
+              <li class="city_name head">City: </li>
+              <li><span id="city_name2"></span></li>
+              <li class="starts head">Date/Time: </li>
+              <li><span id="starts2"></span></li>
+              <li class="venueE head">Venue: </li>
+              <li><span id="venueE2"></span></li>
+              <li class="address head">Venue Address: </li>
+              <li><span id="address2"></span></li>
+            </ul>
+          </div>
+          <div class="resultsContainer">
+            <ul class="events_display">
+              <li class="title head">Event: </li>
+              <li><span id="title3"></span></li>
+              <li class="city_name head">City: </li>
+              <li><span id="city_name3"></span></li>
+              <li class="starts head">Date/Time: </li>
+              <li><span id="starts3"></span></li>
+              <li class="venueE head ">Venue: </li>
+              <li><span id="venueE3"></span></li>
+              <li class="address head">Venue Address: </li>
+              <li><span id="address3"></span></li>
+            </ul>
+          </div>           
+              <form class="backToIt" name="goBack" action = "#" onsubmit="return false">
+                <button class="buttonOne button" type="submit" id="redo" onclick="renderPage()">back to search</button><br><br>
+              </form><br><br>
+        </section>
+
+        <section class="sign_up_page page" id="sign_up_page">
+          <div class="outer">
+            <form class="signUpForm" name="signUpForm" id="siup" action="#" onsubmit="return false"><br>
+              <h2>Sign Up</h2><br>
+                <input class="input" type="text" name="username" placeholder="Enter a username" id="enterUser"/><br><br>
+                <input class="input" type="password" name="password" placeholder="Enter a password" id="enterPass"/><br><br>
+                <input class="input" type="email" name="email" placeholder="Enter your email" id="enterEmail"/><br><br>
+                <button class="buttonOne button" id="createUser" type="submit" onclick="toggleNewUser()">submit</button><br><br>
+            </form>
+          </div>
+            <form class="backToIt" name="goBack" id="backyard" action = "#" onsubmit="return false">
+                <button class="buttonOne button" type="submit" id="replay" onclick="renderPage()">back to search</button><br><br>
+              </form><br><br>
+        </section><br>
+
+        <section class="sign_in_page page page" id="sign_in_page">
+          <div class = "outer">
+            <form class="signInForm" name="signInForm" id="sif" action="#" onsubmit="return false">
+              <br><br><br>
+              <h2>Sign In</h2><br><br>
+                <input class="input" type="text" name="un" placeholder="Enter username" id="userName" required/><br><br>
+                <input class="input" type="password" name="pw" placeholder="Enter password" id="userPass" required/><br><br>
+                  <button class="buttonOne button" id="submitUser" type="submit" onclick="toggleOldUser()">submit</button><br><br><br><br>
+            </form>
+          </div>
+           <form class="backToIt" name="goBack" id="backItUp" action = "#" onsubmit="return false">
+                <button class="buttonOne button" type="submit" id="rerun" onclick="renderPage()">back to search</button><br><br>
+              </form><br><br>
+        </section><br>
+
+        <section class="profile_page page" id="profile_page">
+          <div class ="border">
+            <div>
+              <h2>${hello} (`Hello, (${user.username}) !`)</h2>
+                <ul class="profile_display">
+                  <li><span id="username"></span></li>
+                  <li><span id="email"></span></li>
+                </ul>
+              </div>
+              <div class="updateContainer"><br>
+                <form class="updateUser" name="updateUser" id="updF" action="#" onsubmit="return false">
+                  <label class="labelTwo">Update profile - enter a new username and password below</label><br>
+                  <input class="input" type="text" name="updateUN" placeholder="new username" />
+                  <input class="input" type="text" name="updatePASS" placeholder="new password" /><br><br>
+                    <button class="buttonOne button" type="submit" onclick="updateUser()">submit</button><br><br><br>
+                </form>
+              </div>
+        
+              <div class="notifyContainer">
+                <form class="notifications" name="notifications" action="#" onsubmit="return false">
+                  <label class="labelOne">Sign up for email notifications and we'll keep you in the know about shows in your area!</label><br>
+                  <input class="input" type="text" name="band" id="band" placeholder="artist or band name" /><br><br>
+                    <button class="buttonOne button" id="submitFav" type="submit" onclick="getNotifications();">submit</button><br><br>
+                </form>
+              </div>        
+              <div class="deleteContainer">      
+                <form class="deleteUser" name="deleteUser" id="delF" action="#" onsubmit="return false">
+                  <label class="labelTwo">Drop the Mic</label><br>
+                  <label class="labelTwo">warning -- mic drops cannot be undone</label>
+                    <button class="buttonOne button" id="deleteUser" type="submit" onclick="deleteUser()">delete my profile</button><br><br>
+                </form>
+                <br>
+              </div>
+                <form class="backToIt" name="goBack" id="backTalk" action = "#" onsubmit="return false"><br>
+                <button class="buttonOne button" type="submit" id="resync" onclick="renderPage()">back to search</button><br><br>
+              </form>
+            </div>
+          </section>
+          <section class="deletePage" id="deletePage">
+            <h1>BYE</h1>
+          </section>
+    </main>
+   
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="index.js" ></script>
+</body>
+</html>          
