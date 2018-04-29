@@ -1,4 +1,4 @@
-language:node.js
-node_js:node
+language: node.js
+node_js: node
 services:
   - mongodb
